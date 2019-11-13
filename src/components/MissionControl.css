@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Days+One|Orbitron:400,500,900|Quantico:400,700&display=swap');
+
+
+.control-panel {
+  font-family: "Days One";
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+  min-height: 100vh;
+  background: red;
+  color: #fff;
+  padding: 1em;
+}
+
+.control-panel .control-box {
+  width: 50%;
+  color: #fff;
+  font-size: 1.15em;
+  margin: 2em;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 2em;
+}
+
+
+.control-box ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+
+.control-box ul li {
+  font-family: "Quantico";
+}
