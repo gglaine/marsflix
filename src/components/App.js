@@ -7,6 +7,8 @@ import './App.css';
 import Navbar from './Navbar';
 import ImageList from './ImageList';
 
+import ImageCarousel from './ImageCarousel';
+
 class App extends React.Component {
   state = {
     photos: []
@@ -25,10 +27,8 @@ class App extends React.Component {
     return (
       <div>
         <Navbar />
-        TODO SEARCHBAR / MISSION CONTROL
-        SPIRIT / OPPORTUNITY / CURIOSITY
-        Found {this.state.photos.length} images for this Rover
-        <ImageList photos={this.state.photos} />
+        Found:  {this.state.photos.length} images for this Rover
+        <ImageCarousel autoPlay photos={this.state.photos} />
       </div>
     );
   }
