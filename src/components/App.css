@@ -1,0 +1,29 @@
+ul {
+  list-style: none;
+  margin-left: none;
+  padding-left: none;
+  margin-block-start: 0em !important;
+  margin-block-end: 0em !important;
+}
+
+
+
+.image-list {
+  width: 100vw;
+  background: black;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+}
+.image-list-item {
+  height: 100%;
+  width: 100%;
+}
+
+
+.image-list-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

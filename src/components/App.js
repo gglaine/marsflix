@@ -2,7 +2,10 @@
 import React from 'react';
 import axios from 'axios';
 
-import Image from './Image'
+import './App.css';
+
+import Navbar from './Navbar';
+import ImageList from './ImageList';
 
 class App extends React.Component {
   state = {
@@ -20,21 +23,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <ul>
-      We found {this.state.photos.length} images for this Rover
-        {
-          this.state.photos.map(photo => {
-            return(
-              <li key={photo.id}>
-                <p>{photo.id}</p>
-                <img src={photo.img_src} alt="yo"></img>
-              </li>
-            );
-            }
-          )
-        }
-      </ul>
-    )
+      <div>
+        <Navbar />
+        TODO SEARCHBAR / MISSION CONTROL
+        SPIRIT / OPPORTUNITY / CURIOSITY
+        Found {this.state.photos.length} images for this Rover
+        <ImageList photos={this.state.photos} />
+      </div>
+    );
   }
 }
 
