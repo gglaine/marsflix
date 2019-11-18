@@ -1,6 +1,23 @@
 import './MissionControl.css';
 
+
+
 import React from 'react';
+
+import Select from 'react-select'
+
+const rover_options = [
+  { value: 'SPIRIT', label: 'SPIRIT' },
+  { value: 'OPPORTUNITY', label: 'OPPORTUNITY' },
+  { value: 'CURIOSITY', label: 'CURIOSITY' }
+]
+
+const camera_options = [
+  { value: 'NAVCAM', label: 'NAVCAM' },
+  { value: 'FHAZ', label: 'FHAZ' },
+  { value: 'RHAZ', label: 'RHAZ' }
+]
+
 
 const MissionControl = () => {
   return(
@@ -8,23 +25,12 @@ const MissionControl = () => {
 
       <div className="control-box">
         ROVER :
-        <ul>
-          <li>SPIRIT<img src="https://m.eet.com/media/1188787/mars_spiritdiagram.jpg"></img></li>
-          <li>OPPORTUNITY</li>
-          <li>CURIOSITY</li>
-        </ul>
+        <Select options={rover_options} />
       </div>
       <div className="control-box">
-      CAM:
-        <ul>
-          <li>FHAZ: Front Hazard Avoidance Camera</li>
-          <li>RHAZ: Rear Hazard Avoidance Camera</li>
-          <li>PANCAM : Panoramic Camera</li>
-        </ul>
+        CAM:
+        <Select options={camera_options} />
       </div>
-      <div className="control-box">SOL</div>
-      <div className="control-box">EARTH-DATE</div>
-
     </div>
   );
 }

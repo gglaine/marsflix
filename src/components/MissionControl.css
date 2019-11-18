@@ -6,20 +6,18 @@
   margin-top: 1em;
   margin-bottom: 1em;
   width: 100%;
-  min-height: 100vh;
-  background: red;
+  background: blue;
   color: #fff;
   padding: 1em;
 }
 
 .control-panel .control-box {
-  width: 50%;
+  width: 80%;
   color: #fff;
   font-size: 1.15em;
   margin: 2em;
   border: 2px solid #ddd;
   border-radius: 4px;
-  padding: 2em;
 }
 
 

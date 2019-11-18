@@ -10,5 +10,36 @@ ul {
   margin-block-end: 0em !important;
 }
 
+.loading {
+  color: red;
+  font-size: 3em;
+}
+
+.super-wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.super-wrapper .container {
+  width: 98%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  height: 600px;
+}
+
+.container .image-carousel {
+  flex: 0 0 60%;
+}
+
+.container .mission-control{
+  flex: 0 0 40%;
+}
+
+.image-carousel {
+  width: 100%;
+  padding: 1em;
+}
 
 

@@ -9,8 +9,8 @@ import React from 'react';
 
 const ImageCarousel = (props) => {
 
-    return (
-        <Carousel >
+  return (
+      <Carousel autoPlay={true} interval={3500} useKeyboardArrows={true} showIndicators={false} showThumbs={false} transitionTime={3500} showStatus={false} showArrows={false} infiniteLoop={true} >
       {
         props.photos.map(photo => {
           return(
@@ -22,7 +22,8 @@ const ImageCarousel = (props) => {
         )
       }
       </Carousel>
-    );
+  );
+
 }
 
 

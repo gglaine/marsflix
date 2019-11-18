@@ -5,32 +5,39 @@ import axios from 'axios';
 import './App.css';
 
 import Navbar from './Navbar';
-import MissionControl from './MissionControl';
-import ImageList from './ImageList';
-
 import ImageCarousel from './ImageCarousel';
+import MissionControl from './MissionControl';
 
 class App extends React.Component {
   state = {
-    photos: []
+    photos: [],
+    selectedRover: "curiosity",
+    selectedCamera: "navcam"
   }
 
   componentDidMount() {
-    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&page=1&api_key=hsbsT45s7Y7OgeNjSXKKOwoOfRRBxN4ZmU9cHzSF`)
+    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${this.state.selectedRover}/photos?sol=1000&camera=${this.state.selectedCamera}&page=1&api_key=hsbsT45s7Y7OgeNjSXKKOwoOfRRBxN4ZmU9cHzSF`)
       .then(res => {
         const photos = res.data;
-        this.setState({ photos: photos.photos });
+        const smallSlice = photos.photos.slice(0, 3);
+        this.setState({ photos: smallSlice });
         console.log(photos);
+        console.log(smallSlice);
       })
   }
 
   render() {
     return (
-      <div>
+      <div className="super-wrapper">
         <Navbar />
-        <MissionControl />
-        Found:  {this.state.photos.length} images for this Rover
-        <ImageCarousel autoPlay photos={this.state.photos} />
+        <div className="container">
+          <div className="image-carousel">
+            <ImageCarousel photos={this.state.photos} />
+          </div>
+          <div className="mission-control">
+            <MissionControl />
+          </div>
+        </div>
       </div>
     );
   }
