@@ -2,22 +2,22 @@
 
 
 .control-panel {
-  font-family: "Days One";
-  margin-top: 1em;
-  margin-bottom: 1em;
+  font-family: "Quantico";
+  font-weight: 400 !important;
   width: 100%;
-  background: blue;
   color: #fff;
-  padding: 1em;
+  width: 100%;
+  display: flex;
 }
 
 .control-panel .control-box {
-  width: 80%;
-  color: #fff;
-  font-size: 1.15em;
-  margin: 2em;
-  border: 2px solid #ddd;
-  border-radius: 4px;
+    width: 100%;
+    color: #fbfbfb;
+    font-size: 0.7em;
+    font-weight: normal;
+    opacity: 0.9;
+    margin: 12px;
+
 }
 
 
@@ -29,5 +29,6 @@
 
 
 .control-box ul li {
-  font-family: "Quantico";
+  font-size: 0.7em;
+
 }

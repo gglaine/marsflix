@@ -16,30 +16,39 @@ ul {
 }
 
 .super-wrapper {
-  width: 100%;
-  margin: 0;
+  width: 60%;
+  margin: 0 auto;
   padding: 0;
 }
 
 .super-wrapper .container {
-  width: 98%;
+  width: 100%;
+  margin-top: -2em;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
-  height: 600px;
 }
 
 .container .image-carousel {
-  flex: 0 0 60%;
+  position: relative;
+
+/*  flex: 0 0 60%;*/
 }
 
 .container .mission-control{
-  flex: 0 0 40%;
+  position: absolute;
+  width: 50%;
+  bottom: 1em;
+  left: 2em;
+/*  flex: 0 0 40%;*/
 }
 
 .image-carousel {
   width: 100%;
-  padding: 1em;
+}
+
+.carousel-slider {
+  height: 80vh;
 }
 
 

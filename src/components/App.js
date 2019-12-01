@@ -8,6 +8,13 @@ import Navbar from './Navbar';
 import ImageCarousel from './ImageCarousel';
 import MissionControl from './MissionControl';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 class App extends React.Component {
   state = {
     photos: [],
@@ -33,10 +40,11 @@ class App extends React.Component {
         <div className="container">
           <div className="image-carousel">
             <ImageCarousel photos={this.state.photos} />
-          </div>
-          <div className="mission-control">
+                      <div className="mission-control">
             <MissionControl />
           </div>
+          </div>
+
         </div>
       </div>
     );

@@ -10,7 +10,7 @@ import React from 'react';
 const ImageCarousel = (props) => {
 
   return (
-      <Carousel autoPlay={true} interval={3500} useKeyboardArrows={true} showIndicators={false} showThumbs={false} transitionTime={3500} showStatus={false} showArrows={false} infiniteLoop={true} >
+      <Carousel autoPlay={true} interval={3500} transitionTime={0} useKeyboardArrows={true}  showIndicators={false} showThumbs={false}  showStatus={false} showArrows={false} infiniteLoop={true} >
       {
         props.photos.map(photo => {
           return(
