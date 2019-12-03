@@ -10,7 +10,7 @@ const Navbar = () => {
   return(
 
     <div className="navbar">
-      <div className="navbar-brand">MARSTRIPS</div>
+      <div className="navbar-brand"><img src="../../marsflix.png" alt="logo" /></div>
     </div>
 
   );
