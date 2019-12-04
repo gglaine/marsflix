@@ -22,9 +22,8 @@ class App extends React.Component {
   state = {
     photos: [],
     selectedRoverOption: {value: "CURIOSITY"},
-    selectedCameraOption: {value: "NAVCAM"},
-    solCounter: 133,
-    manifest: []
+    selectedCameraOption: {value: "FHAZ"},
+    solCounter: 133
   }
 
   componentDidMount() {
@@ -79,6 +78,8 @@ class App extends React.Component {
 
 
 
+
+
   render() {
 
     const camera_options = [
@@ -86,7 +87,6 @@ class App extends React.Component {
       { value: 'RHAZ', label: 'RHAZ: Rear Hazard Avoidance Camera' },
       { value: 'NAVCAM', label: 'NAVCAM' },
       { value: 'MAST', label: 'MAST: Mast Camera' },
-      { value: 'MARDI', label: 'MARDI: Mars Descent Imager' }
     ];
 
 
@@ -105,11 +105,15 @@ class App extends React.Component {
               <Select
                 className="react-select-container"
                 classNamePrefix="react-select"
-                label={"Choose camera"}
+                placeholder={"Choose camera"}
                 options={camera_options}
                 onChange={this.handleCameraChange}
               />
             </div>
+          </div>
+          <div className="log">
+            <div className="log-title">LOG</div>
+            LOGS GO HERE
           </div>
         </div>
       </div>
