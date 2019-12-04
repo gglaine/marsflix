@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-bottom: 1em;
     font-size: 1.5em;
 }
@@ -17,3 +18,16 @@
 .navbar-brand {
   color: red;
 }
+
+.navbar-name {
+  color: #ccc;
+}
+
+.navbar-name a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+}
+
+

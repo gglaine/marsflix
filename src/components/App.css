@@ -157,3 +157,13 @@ ul {
 }
 
 
+.manifest-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.manifest-infos {
+  background: red;
+  color: #fff;
+}
+

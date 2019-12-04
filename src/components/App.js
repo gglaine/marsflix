@@ -5,6 +5,13 @@ import axios from 'axios';
 
 import './App.css';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import Navbar from './Navbar';
 import ImageCarousel from './ImageCarousel';
 
@@ -23,7 +30,8 @@ class App extends React.Component {
     photos: [],
     selectedRoverOption: {value: "CURIOSITY"},
     selectedCameraOption: {value: "FHAZ"},
-    solCounter: 133
+    solCounter: 133,
+    manifest: []
   }
 
   componentDidMount() {
@@ -32,6 +40,7 @@ class App extends React.Component {
       .then(res => {
         const manifest = res.data.photo_manifest;
         this.setState({ manifest: manifest });
+        console.log(manifest)
       })
 
     axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
@@ -76,7 +85,18 @@ class App extends React.Component {
   }
 
 
-
+  superfastForward = () => {
+    this.setState({ solCounter: this.state.solCounter + 10 });
+    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
+    .then(res => {
+      const photos = res.data;
+      const smallSlice = photos.photos.slice(0, 3);
+      this.setState({ photos: smallSlice });
+      console.log(photos);
+      console.log(smallSlice);
+    })
+    console.log(this.state.solCounter);
+  }
 
 
 
@@ -91,32 +111,67 @@ class App extends React.Component {
 
 
     return (
-      <div className="super-wrapper">
+
+    <Router>
+      <div>
         <Navbar />
-        <div className="container container-player">
-          <div className="image-carousel">
-            <ImageCarousel photos={this.state.photos} />
-            <div className="btn-rec"><img src="../../rec.png" alt="logo" /></div>
-            <div className="btn-ffw" ><img src="../../ffwd.png" alt="logo" onClick={this.fastForward} /></div>
-            <div className="sol-counter">SOL: {this.state.solCounter}</div>
-          </div>
-          <div className="control-panel">
-            <div className="control-box">
-              <Select
-                className="react-select-container"
-                classNamePrefix="react-select"
-                placeholder={"Choose camera"}
-                options={camera_options}
-                onChange={this.handleCameraChange}
-              />
+
+        <hr />
+
+        {/*
+          A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
+        */}
+        <Switch>
+          <Route exact path="/">
+
+
+
+          <div className="super-wrapper">
+
+            <div className="container container-player">
+              <div className="image-carousel">
+                <ImageCarousel photos={this.state.photos} />
+                <div className="btn-rec"><img src="../../rec.png" alt="logo" /></div>
+                <div className="btn-ffw" ><img src="../../ffwd.png" alt="logo" onClick={this.fastForward} /></div>
+                <div className="sol-counter">SOL: {this.state.solCounter}</div>
+              </div>
+              <div className="control-panel">
+                <div className="control-box">
+                  <Select
+                    className="react-select-container"
+                    classNamePrefix="react-select"
+                    placeholder={"Choose camera"}
+                    options={camera_options}
+                    onChange={this.handleCameraChange}
+                  />
+                </div>
+              </div>
+              <div className="log">
+                <div className="log-title">LOG</div>
+                LOGS GO HERE
+              </div>
             </div>
           </div>
-          <div className="log">
-            <div className="log-title">LOG</div>
-            LOGS GO HERE
-          </div>
-        </div>
+          </Route>
+          <Route path="/manifest">
+            <div className="manifest-wrapper">
+              MANIFEST HERE
+              <ul className="manifest-infos">
+                <li>LAUNCH DATE: {this.state.manifest.launch_date}</li>
+                <li>TOTAL PHOTOS: {this.state.manifest.total_photos}</li>
+              </ul>
+            </div>
+          </Route>
+        </Switch>
       </div>
+    </Router>
+
+
+
     );
   }
 }
