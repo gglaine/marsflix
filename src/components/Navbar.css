@@ -2,15 +2,16 @@
 
 
 .navbar {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  text-align: center;
-  color: #fff;
-  height:65px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5em;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    font-size: 1.5em;
 }
 
 .navbar-brand {

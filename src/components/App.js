@@ -3,9 +3,6 @@ import React from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 
-import ControlRange from '@mapbox/mr-ui/control-range';
-
-
 import './App.css';
 
 import Navbar from './Navbar';
@@ -15,6 +12,10 @@ const API_KEY = "hsbsT45s7Y7OgeNjSXKKOwoOfRRBxN4ZmU9cHzSF";
 const BASE_URL = "https://api.nasa.gov/mars-photos/api/v1/rovers"
 const SHORT_URL = "https://api.nasa.gov/mars-photos/api/v1/"
 
+
+
+
+
 class App extends React.Component {
 
 
@@ -22,6 +23,7 @@ class App extends React.Component {
     photos: [],
     selectedRoverOption: {value: "CURIOSITY"},
     selectedCameraOption: {value: "NAVCAM"},
+    solCounter: 133,
     manifest: []
   }
 
@@ -33,7 +35,7 @@ class App extends React.Component {
         this.setState({ manifest: manifest });
       })
 
-    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=999&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
+    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
       .then(res => {
         const photos = res.data;
         const smallSlice = photos.photos.slice(0, 3);
@@ -47,7 +49,7 @@ class App extends React.Component {
 
 
   handleCameraChange = selectedCameraOption => {
-    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=999&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
+    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
     .then(res => {
       const photos = res.data;
       const smallSlice = photos.photos.slice(0, 3);
@@ -60,6 +62,19 @@ class App extends React.Component {
       () => console.log(`Option selected:`, this.state.selectedCameraOption.value)
     );
   };
+
+  fastForward = () => {
+    this.setState({ solCounter: this.state.solCounter + 1 });
+    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
+    .then(res => {
+      const photos = res.data;
+      const smallSlice = photos.photos.slice(0, 3);
+      this.setState({ photos: smallSlice });
+      console.log(photos);
+      console.log(smallSlice);
+    })
+    console.log(this.state.solCounter);
+  }
 
 
 
@@ -78,41 +93,22 @@ class App extends React.Component {
     return (
       <div className="super-wrapper">
         <Navbar />
-        <div className="container">
-          <div className="rover-manifest">
-          MISSION MANIFEST
-              <ul className="manifest-list">
-                <li><div className="list-tag">LANDING DATE </div><div className="list-info">{this.state.manifest.landing_date}</div></li>
-                <li><div className="list-tag">TOTAL PHOTOS </div><div className="list-info">{this.state.manifest.total_photos}</div></li>
-                <li><div className="list-tag">MAX SOL: </div><div className="list-info">{this.state.manifest.max_sol}</div></li>
-              </ul>
-          </div>
-        </div>
-        <div className="container">
+        <div className="container container-player">
           <div className="image-carousel">
             <ImageCarousel photos={this.state.photos} />
-            <div className="control-panel">
-              <div className="control-box">
-                CAM:
-                <Select
-                  options={camera_options}
-                  onChange={this.handleCameraChange}
-                />
-              </div>
-              <div className="control-box">
-              SELECT SOL
-                <ControlRange
-                  id="name"
-                  min={0}
-                  max={1000}
-                  step={1}
-                  onChange={
-                    (value, id ) => {
-                      console.log(value, id);
-                    }
-                  }
-                />
-              </div>
+            <div className="btn-rec"><img src="../../rec.png" alt="logo" /></div>
+            <div className="btn-ffw" ><img src="../../ffwd.png" alt="logo" onClick={this.fastForward} /></div>
+            <div className="sol-counter">SOL: {this.state.solCounter}</div>
+          </div>
+          <div className="control-panel">
+            <div className="control-box">
+              <Select
+                className="react-select-container"
+                classNamePrefix="react-select"
+                label={"Choose camera"}
+                options={camera_options}
+                onChange={this.handleCameraChange}
+              />
             </div>
           </div>
         </div>
