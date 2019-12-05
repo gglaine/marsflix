@@ -12,21 +12,26 @@ ul {
   margin-block-end: 0em !important;
 }
 
+/*// ALERT MESSAGE*/
+
 .checkcam {
   color: blue;
   font-size: 2em;
   font-family: "Sulphur Point";
   font-weight: 400;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
-.log {
-  color: blue;
-}
+
+/*// WRAPPERS*/
 
 .super-wrapper {
   width: 100%;
   margin: 0 auto;
   padding: 0;
+  padding-top: 2em;
 }
 
 .super-wrapper .container {
@@ -35,7 +40,7 @@ ul {
   margin: 0 auto;
 }
 
-// PLAYER-CONTAINER
+/*// PLAYER-CONTAINER*/
 
 .container-player {
   width: 80%;
@@ -47,7 +52,6 @@ ul {
   align-items: center;
 }
 
-
 .image-carousel {
   width: 100%;
   max-width: 660px;
@@ -55,18 +59,17 @@ ul {
   position: relative;
 }
 
-
-
 .carousel-slider {
   height: auto;
   margin-bottom: 2em;
 }
 
 .carousel .slider-wrapper {
-    overflow: hidden;
-    margin: auto;
-    width: 42%;
-    transition: height .5s ease-in;
+  overflow: hidden;
+  margin: auto;
+  width: 42%;
+  transition: height .5s ease-in;
+  transition: width 3s ease-in;
 }
 
 /*// SELECTED IMAGE */
@@ -74,8 +77,10 @@ ul {
 .image-list-item {
   background: contain;
   position: relative;
-  border: 10px solid red;
+  max-height: 75vh;
 }
+
+
 
 @media only screen and (max-width: 768px) {
 
@@ -87,41 +92,33 @@ ul {
   .carousel .slide img {
     border-radius: 1.5em;
   }
-  .image-list-item {
-  background: contain;
-  position: relative;
-  border: 2px solid red;
-  border-radius: 20%;
-  }
-
-  .carousel-placeholder {
-    height: 100vh;
-    background: yellow;
-  }
-
 }
 
 /*// BUTTONS*/
 
 .btn-ffw {
   position: absolute;
-  bottom: 1em;
+  bottom: 0em;
   right: 1em;
+  opacity: 0.8;
 }
 
-.btn-rec {
+.btn-fff {
   position: absolute;
-  bottom: 1em;
-  left: 1em;
+  bottom: 0em;
+  right: 4em;
   opacity: 0.8;
 }
 
 .sol-counter {
-  color: #ddd;
+  color: #96969a;
   position: absolute;
-  bottom: 2em;
-  right: 4em;
-  font-size: 1em;
+  bottom: 0.8em;
+  opacity: 0.8;
+  left: 1em;
+  font-size: 1.3em;
+  font-family: "Sulphur Point";
+  font-weight: 700;
 }
 
 /*.carousel .slide {
@@ -130,6 +127,7 @@ ul {
 
 .control-panel {
   margin-top: 2em;
+  width: 100%;
 }
 
 
@@ -162,8 +160,38 @@ ul {
   flex-direction: column;
 }
 
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: red;
+  height: 100vh;
+  font-family: "Sulphur Point";
+}
+
 .manifest-infos {
   background: red;
-  color: #fff;
+  color: black;
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: "Sulphur Point";
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+.manifest-infos li {
+  margin-bottom: 5px;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info {
+  color: #ccc;
+  font-size: 1.3em;
+
 }
 

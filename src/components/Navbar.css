@@ -19,11 +19,15 @@
   color: red;
 }
 
-.navbar-name {
+.navbar-nav {
+  width: 100%;
   color: #ccc;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.navbar-name a {
+.navbar-nav a {
   font-size: 12px;
   text-decoration: none;
   color: #fff;

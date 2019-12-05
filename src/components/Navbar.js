@@ -16,8 +16,13 @@ const Navbar = () => {
         <Link to="/"><img src="../../marsflix.png" alt="logo" />
         </Link>
       </div>
-      <div className="navbar-name">
-          <Link to="/manifest">CURIOSITY MISSION MANIFEST</Link>
+      <div className="navbar-nav">
+        <div>
+          <Link to="/manifest">MANIFEST</Link>
+        </div>
+        <div>
+          <Link to="/about">ABOUT</Link>
+        </div>
       </div>
     </div>
 

@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import { Carousel } from 'react-responsive-carousel';
+import Sound from 'react-sound'
 
 
 import React from 'react';
@@ -11,6 +12,7 @@ const ImageCarousel = (props) => {
 
   if (props.photos && props.photos.length < 1 ) { // evaluates to true if there are photos
     return(
+
       <div>
         <div className="checkcam">CHECK OTHER CAM</div>
         <Loader
