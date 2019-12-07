@@ -15,13 +15,17 @@ ul {
 /*// ALERT MESSAGE*/
 
 .checkcam {
-  color: blue;
-  font-size: 2em;
-  font-family: "Sulphur Point";
-  font-weight: 400;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
+    color: blue;
+    border-radius: 4px;
+    background: #d6d6d64a;
+    padding: 16px;
+    /* border: 2px solid #0000ff52; */
+    text-align: center;
+    /* margin-left: 2em; */
+    margin: 0 auto;
+    font-size: 2em;
+    font-family: "Sulphur Point";
+
 }
 
 
@@ -170,8 +174,8 @@ ul {
 }
 
 .manifest-infos {
-  background: red;
-  color: black;
+  background: black;
+  color: red;
   min-height: 30vh;
   display: flex;
   align-items: center;

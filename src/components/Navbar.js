@@ -12,10 +12,12 @@ const Navbar = () => {
   return(
 
     <div className="navbar">
+
       <div className="navbar-brand">
         <Link to="/"><img src="../../marsflix.png" alt="logo" />
         </Link>
       </div>
+
       <div className="navbar-nav">
         <div>
           <Link to="/manifest">MANIFEST</Link>

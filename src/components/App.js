@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from './Navbar';
 import ImageCarousel from './ImageCarousel';
 
+import Manifest from './Manifest'
+
 
 import Sound from 'react-sound'
 
@@ -103,13 +105,13 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               <div className="super-wrapper" style={ sectionStyle} >
-                      <Sound
-         url="../../vector.mp3"
-         playStatus={Sound.status.PLAYING}
-         onLoading={this.handleSongLoading}
-         onPlaying={this.handleSongPlaying}
-         onFinishedPlaying={this.handleSongFinishedPlaying}
-       />
+                <Sound
+                   url="../../vector.mp3"
+                   playStatus={Sound.status.PLAYING}
+                   onLoading={this.handleSongLoading}
+                   onPlaying={this.handleSongPlaying}
+                   onFinishedPlaying={this.handleSongFinishedPlaying}
+                 />
                 <div className="container container-player">
                   <div className="image-carousel">
                     <ImageCarousel photos={this.state.photos} />
@@ -132,14 +134,7 @@ class App extends React.Component {
               </div>
             </Route>
             <Route path="/manifest">
-              <div className="manifest-wrapper">
-                <ul className="manifest-infos">
-                  <li>LAUNCH <span className="info">{this.state.manifest.launch_date}</span></li>
-                  <li>LANDING <span className="info"> {this.state.manifest.landing_date}</span></li>
-                  <li>PHOTOS <span className="info"> {this.state.manifest.total_photos}</span></li>
-
-                </ul>
-              </div>
+              <Manifest manifest={this.state.manifest}/>
             </Route>
             <Route path="/about">
               <div className="about-wrapper">

@@ -1,0 +1,47 @@
+
+.container-manifest {
+  min-height: 100vh;
+  color: #ccc;
+
+}
+
+.manifest-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.manifest-card {
+  font-family: "Sulphur Point";
+  min-height: 330px;
+  background: #5d1818;
+  width: 80%;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.manifest-card .list-tag {
+  font-family: avenir, sans-serif;
+      flex: 0 0 40%;
+    background: red;
+    height: 30vmin;
+    padding-left: 1em;
+    font-size: 2em;
+    /* vertical-align: text-top; */
+    clip-path: polygon(100% 0%, 69% 90%, 0% 90%, 0% 0%);
+}
+
+.manifest-card .list-info {
+  flex: 0 0 60%;
+  font-family: avenir, sans-serif;
+}
+
+.manifest-card .list-info p {
+  max-width: 60%;
+}
+
+
