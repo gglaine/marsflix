@@ -7,22 +7,21 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Navbar from './Navbar';
 import ImageCarousel from './ImageCarousel';
-
 import Manifest from './Manifest'
-
+import MyFlix from './MyFlix';
 
 import Sound from 'react-sound'
 
-const API_KEY = "hsbsT45s7Y7OgeNjSXKKOwoOfRRBxN4ZmU9cHzSF";
 const BASE_URL = "https://api.nasa.gov/mars-photos/api/v1/rovers"
 const SHORT_URL = "https://api.nasa.gov/mars-photos/api/v1/"
+
+const API_KEY = `${process.env.REACT_APP_API_KEY}`
 
 
 class App extends React.Component {
 
   state = {
     photos: [],
-    selectedRoverOption: {value: "CURIOSITY"},
     selectedCameraOption: {value: "FHAZ"},
     solCounter: 133,
     manifest: []
@@ -115,8 +114,8 @@ class App extends React.Component {
                 <div className="container container-player">
                   <div className="image-carousel">
                     <ImageCarousel photos={this.state.photos} />
-                    <div className="btn-ffw" ><img src="../../fffred.png" alt="logo" onClick={this.fastForward} /></div>
-                    <div className="btn-fff" ><img src="../../ffwd.png" alt="logo" onClick={this.superfastForward} /></div>
+                    <div className="btn-fff" ><img src="../../fffred.png" alt="logo" onClick={this.fastForward} /></div>
+                    <div className="btn-ffw" ><img src="../../ffwd.png" alt="logo" onClick={this.superfastForward} /></div>
                     <div className="sol-counter">SOL: {this.state.solCounter}</div>
                   </div>
                   <div className="control-panel">
@@ -124,7 +123,7 @@ class App extends React.Component {
                       <Select
                         className="react-select-container"
                         classNamePrefix="react-select"
-                        placeholder={"Choose camera"}
+
                         options={camera_options}
                         onChange={this.handleCameraChange}
                       />
@@ -135,6 +134,10 @@ class App extends React.Component {
             </Route>
             <Route path="/manifest">
               <Manifest manifest={this.state.manifest}/>
+            </Route>
+
+            <Route path="/myflix">
+              <h3>MYFLIX</h3>
             </Route>
             <Route path="/about">
               <div className="about-wrapper">

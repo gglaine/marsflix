@@ -23,6 +23,9 @@ const Navbar = () => {
           <Link to="/manifest">MANIFEST</Link>
         </div>
         <div>
+          <Link to="/myflix">MYFLIX</Link>
+        </div>
+        <div>
           <Link to="/about">ABOUT</Link>
         </div>
       </div>

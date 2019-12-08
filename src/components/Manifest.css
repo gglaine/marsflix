@@ -2,7 +2,6 @@
 .container-manifest {
   min-height: 100vh;
   color: #ccc;
-
 }
 
 .manifest-list {
@@ -11,7 +10,6 @@
   justify-content: space-around;
   align-items: center;
 }
-
 
 .manifest-card {
   font-family: "Sulphur Point";
@@ -26,13 +24,12 @@
 
 .manifest-card .list-tag {
   font-family: avenir, sans-serif;
-      flex: 0 0 40%;
-    background: red;
-    height: 30vmin;
-    padding-left: 1em;
-    font-size: 2em;
-    /* vertical-align: text-top; */
-    clip-path: polygon(100% 0%, 69% 90%, 0% 90%, 0% 0%);
+  flex: 0 0 40%;
+  background: red;
+  height: 30vmin;
+  padding-left: 1em;
+  font-size: 2em;
+  clip-path: polygon(100% 0%, 69% 90%, 0% 90%, 0% 0%);
 }
 
 .manifest-card .list-info {

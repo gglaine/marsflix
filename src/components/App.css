@@ -12,7 +12,7 @@ ul {
   margin-block-end: 0em !important;
 }
 
-/*// ALERT MESSAGE*/
+/*// ALERT MESSAGE IF NO PHOTOS*/
 
 .checkcam {
     color: blue;
@@ -33,6 +33,9 @@ ul {
 
 .super-wrapper {
   width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   margin: 0 auto;
   padding: 0;
   padding-top: 2em;
@@ -63,6 +66,12 @@ ul {
   position: relative;
 }
 
+.control-panel {
+  margin-top: 2em;
+  width: 100%;
+}
+
+
 .carousel-slider {
   height: auto;
   margin-bottom: 2em;
@@ -84,19 +93,6 @@ ul {
   max-height: 75vh;
 }
 
-
-
-@media only screen and (max-width: 768px) {
-
-  .super-wrapper .container {
-    width: 90%;
-    margin-top: 2em;
-    margin: 0 auto;
-  }
-  .carousel .slide img {
-    border-radius: 1.5em;
-  }
-}
 
 /*// BUTTONS*/
 
@@ -129,10 +125,23 @@ ul {
   border-radius: 2em;
 }*/
 
-.control-panel {
-  margin-top: 2em;
-  width: 100%;
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+  .super-wrapper .container {
+    width: 90%;
+    margin-top: 2em;
+    margin: 0 auto;
+  }
+  .carousel .slide img {
+    border-radius: 1.5em;
+  }
 }
+
 
 
 .react-select-container {
@@ -149,7 +158,11 @@ ul {
 .react-select__control {
   max-width: 60%;
   margin: 0 auto;
-  background-color: hsl(0, 55%, 3%);
+  background-color: yellow;
+}
+
+.react-select__indicator {
+  background: red;
 }
 
 .react-select__value-container {
@@ -173,25 +186,6 @@ ul {
   font-family: "Sulphur Point";
 }
 
-.manifest-infos {
-  background: black;
-  color: red;
-  min-height: 30vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
-  font-family: "Sulphur Point";
-  font-weight: 700;
-  font-size: 1.5em;
-}
-
-.manifest-infos li {
-  margin-bottom: 5px;
-    display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .info {
   color: #ccc;
