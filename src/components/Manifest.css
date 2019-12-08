@@ -9,17 +9,47 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding: 0em;
 }
 
 .manifest-card {
   font-family: "Sulphur Point";
   min-height: 330px;
-  background: #5d1818;
   width: 80%;
   margin-bottom: 1em;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  min-height: 500px;
+}
+
+@media screen and (max-width: 768px) {
+  .manifest-card {
+    flex-direction: column;
+  }
+  .list-tag {
+    font-family: avenir, sans-serif;
+    background: red;
+    height: 30vmin;
+    font-size: 1em;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    width: 100%;
+  }
+  .list-info {
+    padding: 1em;
+  }
+  .video-move {
+    min-height: 300px;
+    width: 100%;
+    background: yellow;
+  }
+  .video-move source {
+    min-height: 300px;
+    width: 300px;
+    background: red;
+  }
 }
 
 .manifest-card .list-tag {
@@ -27,9 +57,7 @@
   flex: 0 0 40%;
   background: red;
   height: 30vmin;
-  padding-left: 1em;
-  font-size: 2em;
-  clip-path: polygon(100% 0%, 69% 90%, 0% 90%, 0% 0%);
+  font-size: 1em;
 }
 
 .manifest-card .list-info {
@@ -38,7 +66,7 @@
 }
 
 .manifest-card .list-info p {
-  max-width: 60%;
+  max-width: 100%;
 }
 
 

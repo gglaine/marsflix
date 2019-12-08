@@ -39,7 +39,6 @@ class App extends React.Component {
         const photos = res.data;
         const smallSlice = photos.photos.slice(0, 3);
         this.setState({ photos: smallSlice });
-        console.log(photos);
         console.log(smallSlice);
       })
   }
@@ -50,7 +49,6 @@ class App extends React.Component {
       const photos = res.data;
       const smallSlice = photos.photos.slice(0, 3);
       this.setState({ photos: smallSlice });
-      console.log(photos);
       console.log(smallSlice);
     })
     this.setState(
@@ -66,7 +64,6 @@ class App extends React.Component {
       const photos = res.data;
       const smallSlice = photos.photos.slice(0, 6);
       this.setState({ photos: smallSlice });
-      console.log(photos);
       console.log(smallSlice);
     })
     console.log(this.state.solCounter);
@@ -80,7 +77,6 @@ class App extends React.Component {
       const photos = res.data;
       const smallSlice = photos.photos.slice(0, 6);
       this.setState({ photos: smallSlice });
-      console.log(photos);
       console.log(smallSlice);
     })
     console.log(this.state.solCounter);
@@ -94,7 +90,7 @@ class App extends React.Component {
     ];
 
     const sectionStyle = {
-      backgroundImage: "url(../../marso.jpg)"
+      backgroundImage: "url(../../marso.jpg)",
     };
 
     return (
@@ -123,7 +119,6 @@ class App extends React.Component {
                       <Select
                         className="react-select-container"
                         classNamePrefix="react-select"
-
                         options={camera_options}
                         onChange={this.handleCameraChange}
                       />
