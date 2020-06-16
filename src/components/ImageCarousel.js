@@ -28,9 +28,10 @@ const ImageCarousel = (props) => {
   };
 
   return (
-      <Carousel autoPlay={true} interval={3500} transitionTime={0} useKeyboardArrows={true}  showIndicators={false} showThumbs={false}  showStatus={false} showArrows={false} infiniteLoop={true} >
+      <Carousel autoPlay={true} interval={3500} transitionTime={0} useKeyboardArrows={true}  showIndicators={false} showThumbs={false}  showStatus={false} showArrows={true} infiniteLoop={true} >
       {
         props.photos.map(photo => {
+          console.log(props.photos.length);
           return(
             <div key={photo.id} className="image-list-item" >
               <img src={photo.img_src}  alt="yo"></img>

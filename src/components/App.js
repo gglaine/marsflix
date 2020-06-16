@@ -23,7 +23,7 @@ class App extends React.Component {
   state = {
     photos: [],
     selectedCameraOption: {value: "FHAZ"},
-    solCounter: 133,
+    solCounter: 53,
     manifest: []
   }
 
@@ -37,17 +37,17 @@ class App extends React.Component {
     axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
       .then(res => {
         const photos = res.data;
-        const smallSlice = photos.photos.slice(0, 3);
+        const smallSlice = photos.photos.slice(0, 33);
         this.setState({ photos: smallSlice });
         console.log(smallSlice);
       })
   }
 
-  handleCameraChange = selectedCameraOption => {
-    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
+  handleCameraChange = async selectedCameraOption => {
+    await axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
     .then(res => {
       const photos = res.data;
-      const smallSlice = photos.photos.slice(0, 3);
+      const smallSlice = photos.photos.slice(0, 33);
       this.setState({ photos: smallSlice });
       console.log(smallSlice);
     })
@@ -57,12 +57,16 @@ class App extends React.Component {
     );
   };
 
+  missionStart = () => {
+
+  }
+
   fastForward = () => {
     this.setState({ solCounter: this.state.solCounter + 1 });
     axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
     .then(res => {
       const photos = res.data;
-      const smallSlice = photos.photos.slice(0, 6);
+      const smallSlice = photos.photos.slice(0, 33);
       this.setState({ photos: smallSlice });
       console.log(smallSlice);
     })
@@ -70,12 +74,12 @@ class App extends React.Component {
   }
 
 
-  superfastForward = () => {
-    this.setState({ solCounter: this.state.solCounter + 10 });
+  superfastForward = async () => {
+    await this.setState({ solCounter: this.state.solCounter + 10 });
     axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
     .then(res => {
       const photos = res.data;
-      const smallSlice = photos.photos.slice(0, 6);
+      const smallSlice = photos.photos.slice(0, 33);
       this.setState({ photos: smallSlice });
       console.log(smallSlice);
     })
@@ -89,9 +93,6 @@ class App extends React.Component {
       { value: 'RHAZ', label: 'RHAZ: Rear Hazard Avoidance Camera' },
     ];
 
-    const sectionStyle = {
-      backgroundImage: "url(../../marso.jpg)",
-    };
 
     return (
       <Router>
@@ -99,7 +100,7 @@ class App extends React.Component {
           <Navbar />
           <Switch>
             <Route exact path="/">
-              <div className="super-wrapper" style={ sectionStyle} >
+              <div className="super-wrapper"  >
                 <Sound
                    url="../../vector.mp3"
                    playStatus={Sound.status.PLAYING}
@@ -110,8 +111,9 @@ class App extends React.Component {
                 <div className="container container-player">
                   <div className="image-carousel">
                     <ImageCarousel photos={this.state.photos} />
-                    <div className="btn-fff" ><img src="../../fffred.png" alt="logo" onClick={this.fastForward} /></div>
-                    <div className="btn-ffw" ><img src="../../ffwd.png" alt="logo" onClick={this.superfastForward} /></div>
+                    <div className="btn-fff">SOL O</div>
+                    <div className="btn-fff" ><img src="../../ffwd.png" alt="logo" onClick={this.fastForward} /></div>
+                    <div className="btn-ffw" ><img src="../../fffred.png" alt="logo" onClick={this.superfastForward} /></div>
                     <div className="sol-counter">SOL: {this.state.solCounter}</div>
                   </div>
                   <div className="control-panel">
