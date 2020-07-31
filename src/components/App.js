@@ -9,6 +9,8 @@ import Navbar from './Navbar';
 import ImageCarousel from './ImageCarousel';
 import Manifest from './Manifest'
 
+import Sound from 'react-sound'
+
 const BASE_URL = "https://api.nasa.gov/mars-photos/api/v1/rovers"
 const SHORT_URL = "https://api.nasa.gov/mars-photos/api/v1/"
 
