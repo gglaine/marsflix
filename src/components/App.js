@@ -3,14 +3,11 @@ import React from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from './Navbar';
 import ImageCarousel from './ImageCarousel';
 import Manifest from './Manifest'
-import MyFlix from './MyFlix';
-
-import Sound from 'react-sound'
 
 const BASE_URL = "https://api.nasa.gov/mars-photos/api/v1/rovers"
 const SHORT_URL = "https://api.nasa.gov/mars-photos/api/v1/"
