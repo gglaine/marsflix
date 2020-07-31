@@ -14,7 +14,7 @@ import Sound from 'react-sound'
 const BASE_URL = "https://api.nasa.gov/mars-photos/api/v1/rovers"
 const SHORT_URL = "https://api.nasa.gov/mars-photos/api/v1/"
 
-const API_KEY = `${process.env.REACT_APP_API_KEY}`
+const API_KEY = `${REACT_APP_API_KEY}`
 
 
 class App extends React.Component {
@@ -32,6 +32,7 @@ class App extends React.Component {
         const manifest = res.data.photo_manifest;
         this.setState({ manifest: manifest });
         console.log(manifest)
+        console.log(API_KEY)
       })
     axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
       .then(res => {
