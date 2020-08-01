@@ -31,8 +31,7 @@ class App extends React.Component {
       .then(res => {
         const manifest = res.data.photo_manifest;
         this.setState({ manifest: manifest });
-        console.log(manifest)
-        console.log(API_KEY)
+        console.log(this.state.manifest)
       })
     axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
       .then(res => {
