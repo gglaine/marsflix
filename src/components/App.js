@@ -3,6 +3,7 @@ import React from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 import './App.css';
+import { Icon } from 'semantic-ui-react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from './Navbar';
@@ -22,7 +23,7 @@ class App extends React.Component {
   state = {
     photos: [],
     selectedCameraOption: {value: "FHAZ"},
-    solCounter: 53,
+    solCounter: 0,
     manifest: []
   }
 
@@ -36,7 +37,7 @@ class App extends React.Component {
     axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
       .then(res => {
         const photos = res.data;
-        const smallSlice = photos.photos.slice(0, 33);
+        const smallSlice = photos.photos.slice(0, 53);
         this.setState({ photos: smallSlice });
         console.log(smallSlice);
       })
@@ -46,7 +47,7 @@ class App extends React.Component {
     await axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
     .then(res => {
       const photos = res.data;
-      const smallSlice = photos.photos.slice(0, 33);
+      const smallSlice = photos.photos.slice(0, 53);
       this.setState({ photos: smallSlice });
       console.log(smallSlice);
     })
@@ -57,7 +58,39 @@ class App extends React.Component {
   };
 
   missionStart = () => {
+    this.setState({ solCounter: 0 });
+    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
+    .then(res => {
+      const photos = res.data;
+      const smallSlice = photos.photos.slice(0, 153);
+      this.setState({ photos: smallSlice });
+      console.log(smallSlice);
+    })
+    console.log(this.state.solCounter);
+  }
 
+    fastRewind = () => {
+    this.setState({ solCounter: this.state.solCounter - 10 });
+    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
+    .then(res => {
+      const photos = res.data;
+      const smallSlice = photos.photos.slice(0, 53);
+      this.setState({ photos: smallSlice });
+      console.log(smallSlice);
+    })
+    console.log(this.state.solCounter);
+  }
+
+  Rewind = () => {
+    this.setState({ solCounter: this.state.solCounter - 1 });
+    axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
+    .then(res => {
+      const photos = res.data;
+      const smallSlice = photos.photos.slice(0, 53);
+      this.setState({ photos: smallSlice });
+      console.log(smallSlice);
+    })
+    console.log(this.state.solCounter);
   }
 
   fastForward = () => {
@@ -65,7 +98,7 @@ class App extends React.Component {
     axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
     .then(res => {
       const photos = res.data;
-      const smallSlice = photos.photos.slice(0, 33);
+      const smallSlice = photos.photos.slice(0, 53);
       this.setState({ photos: smallSlice });
       console.log(smallSlice);
     })
@@ -78,7 +111,7 @@ class App extends React.Component {
     axios.get(`${BASE_URL}/CURIOSITY/photos?sol=${this.state.solCounter}&camera=${this.state.selectedCameraOption.value}&page=1&api_key=${API_KEY}`)
     .then(res => {
       const photos = res.data;
-      const smallSlice = photos.photos.slice(0, 33);
+      const smallSlice = photos.photos.slice(0, 53);
       this.setState({ photos: smallSlice });
       console.log(smallSlice);
     })
@@ -88,8 +121,8 @@ class App extends React.Component {
   render() {
 
     const camera_options = [
-      { value: 'FHAZ', label: 'FHAZ: Front Hazard Avoidance Camera' },
-      { value: 'RHAZ', label: 'RHAZ: Rear Hazard Avoidance Camera' },
+      { value: 'FHAZ', label: 'FHAZ: Front Camera' },
+      { value: 'RHAZ', label: 'RHAZ: Rear Camera' },
     ];
 
 
@@ -110,20 +143,29 @@ class App extends React.Component {
                 <div className="container container-player">
                   <div className="image-carousel">
                     <ImageCarousel photos={this.state.photos} />
-                    <div className="btn-fff">SOL O</div>
-                    <div className="btn-fff" ><img src="../../ffwd.png" alt="logo" onClick={this.fastForward} /></div>
-                    <div className="btn-ffw" ><img src="../../fffred.png" alt="logo" onClick={this.superfastForward} /></div>
-                    <div className="sol-counter">SOL: {this.state.solCounter}</div>
-                  </div>
-                  <div className="control-panel">
-                    <div className="control-box">
-                      <Select
-                        className="react-select-container"
-                        classNamePrefix="react-select"
-                        options={camera_options}
-                        onChange={this.handleCameraChange}
-                      />
+                    <div className="sol-counter">Current Sol: {this.state.solCounter}</div>
+
+                    <div className="full-controls">
+                      <div className="controls">
+                        <Icon color='red' name='fast backward' onClick={this.fastRewind}  />
+                        <Icon color='red' name='backward' onClick={this.Rewind}  />
+                        <Icon color='red' name='play' onClick={this.missionStart}  />
+                        <Icon color='red' name='forward' onClick={this.fastForward}  />
+                        <Icon color='red' name='fast forward' onClick={this.superfastForward}  />
+                      </div>
+
+                      <div className="control-panel">
+                        <div className="control-box">
+                          <Select
+                            className="react-select-container"
+                            classNamePrefix="react-select"
+                            options={camera_options}
+                            onChange={this.handleCameraChange}
+                          />
+                        </div>
+                      </div>
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -132,14 +174,12 @@ class App extends React.Component {
               <Manifest manifest={this.state.manifest}/>
             </Route>
 
-            <Route path="/myflix">
-              <h3>MYFLIX</h3>
-            </Route>
             <Route path="/about">
               <div className="about-wrapper">
                 <div className="about">
                   <div>Powered by NASA OPEN API</div>
-                  <div>guilllaumelaine - 2019 </div>
+                  <div>guilllaumelaine.com - 2019 </div>
+                  <div><p>github.com/gglaine/marsflix</p></div>
                 </div>
               </div>
             </Route>

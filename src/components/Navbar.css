@@ -3,7 +3,7 @@
 
 .navbar {
     font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
+    font-weight: 400;
     text-align: center;
     color: #fff;
     height: 60px;
@@ -12,23 +12,24 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 1em;
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
 .navbar-brand {
-  color: red;
+  margin-bottom: 1em;
+  margin-top: 2em;
 }
 
 .navbar-nav {
   width: 100%;
   color: #ccc;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .navbar-nav a {
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   color: #fff;
   font-weight: 400;

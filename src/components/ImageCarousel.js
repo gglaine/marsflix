@@ -13,7 +13,7 @@ const ImageCarousel = (props) => {
     return(
 
       <div>
-        <div className="checkcam">CHECK OTHER CAM</div>
+        <div className="checkcam">PLEASE SWITCH CAM</div>
         <Loader
            type="Puff"
            color="#00BFFF"
@@ -27,7 +27,7 @@ const ImageCarousel = (props) => {
   };
 
   return (
-      <Carousel autoPlay={true} interval={3500} transitionTime={0} useKeyboardArrows={true}  showIndicators={false} showThumbs={false}  showStatus={false} showArrows={true} infiniteLoop={true} >
+      <Carousel autoPlay={true} interval={500} transitionTime={0} useKeyboardArrows={true}  showIndicators={false} showThumbs={true}  showStatus={false} showArrows={true} infiniteLoop={true} >
       {
         props.photos.map(photo => {
           console.log(props.photos.length);

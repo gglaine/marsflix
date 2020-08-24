@@ -43,7 +43,7 @@
   .video-move {
     min-height: 300px;
     width: 100%;
-    background: yellow;
+    background: black;
   }
   .video-move source {
     min-height: 300px;
@@ -55,7 +55,7 @@
 .manifest-card .list-tag {
   font-family: avenir, sans-serif;
   flex: 0 0 40%;
-  background: red;
+  background: black;
   height: 30vmin;
   font-size: 1em;
 }
