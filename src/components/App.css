@@ -69,8 +69,8 @@ ul {
 
 .carousel .thumb {
   clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%) !important;
-  border: 1px solid #e40a0a6b;
-  width: 25px;
+  border: 1px solid #e40a0a6b !important;
+  width: 25px !important;
 }
 
 .controls {
