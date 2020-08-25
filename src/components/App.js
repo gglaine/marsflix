@@ -23,7 +23,7 @@ class App extends React.Component {
   state = {
     photos: [],
     selectedCameraOption: {value: "FHAZ"},
-    solCounter: 0,
+    solCounter:700,
     manifest: []
   }
 

@@ -19,7 +19,7 @@ const ImageCarousel = (props) => {
            color="#00BFFF"
            height={400}
            width={100}
-           timeout={13000} //13 secs
+           timeout={1300}
 
         />
       </div>
@@ -27,7 +27,7 @@ const ImageCarousel = (props) => {
   };
 
   return (
-      <Carousel autoPlay={true} interval={500} transitionTime={0} useKeyboardArrows={true}  showIndicators={false} showThumbs={true}  showStatus={false} showArrows={true} infiniteLoop={true} >
+      <Carousel autoPlay={true} interval={1500} transitionTime={0} useKeyboardArrows={true}  showIndicators={true} showThumbs={true}  showStatus={true} showArrows={true} infiniteLoop={true} >
       {
         props.photos.map(photo => {
           console.log(props.photos.length);

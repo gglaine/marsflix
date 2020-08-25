@@ -16,7 +16,7 @@ ul {
 /*// ALERT MESSAGE IF NO PHOTOS*/
 
 .checkcam {
-    color: blue;
+    color: red;
     border-radius: 4px;
     background: #d6d6d64a;
     padding: 16px;
@@ -24,7 +24,7 @@ ul {
     text-align: center;
     /* margin-left: 2em; */
     margin: 0 auto;
-    font-size: 2em;
+    font-size: 1.25em;
     font-family: "Sulphur Point";
 
 }
@@ -65,6 +65,12 @@ ul {
   max-width: 660px;
   margin: 0 auto;
   position: relative;
+}
+
+.carousel .thumb {
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%) !important;
+  border: 1px solid #e40a0a6b;
+  width: 25px;
 }
 
 .controls {
@@ -112,6 +118,7 @@ ul {
   background: contain;
   position: relative;
   max-height: 75vh;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
 }
 
 
@@ -126,7 +133,7 @@ ul {
   left: 0em;
   width: 100%;
   text-align: center;
-  font-size: 2em;
+  font-size: 1em;
     /* font-family: "Sulphur Point"; */
     /* font-weight: 700;
 }
